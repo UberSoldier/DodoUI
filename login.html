@@ -9,17 +9,49 @@
 			if (window != window.top) top.location.href = self.location.href;
 		</script>
 		<link rel="stylesheet" type="text/css" href="./plugins/layui/css/layui.css" />
-		<link rel="stylesheet" type="text/css" href="./plugins/font-awesome/css/" />
+		<link rel="stylesheet" type="text/css" href="./plugins/font-awesome/css/font-awesome.css" />
 		<link rel="stylesheet" type="text/css" href="./build/css/login.css" />
 		<link rel="stylesheet" type="text/css" href="./plugins/sideshow/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/sideshow/css/demo.css">
 		<link rel="stylesheet" type="text/css" href="./plugins/sideshow/css/component.css" />
-		<style type="text/css" media="screen">
+		<!-- [if IE]>
+			<script src="./plugins/sideshow/js/html5.js"></script>
+		<![endif]-->
+		<style type="text/css">
 			canvas {
 				position: absolute;
 				z-index: -1;
 			}
+
+			.dodo-login-box header h1 {
+				line-height: normal;
+			}
+			.dodo-login-box header {
+				height: auto;
+			}
 			.content {
 				position: relative;
+			}
+			.dodo-pull-right button,
+			.dodo-login-main .layui-form-item input {
+				background-color: transparent;
+				color: white;
+			}
+			.dodo-login-main .layui-form-item input::-webkit-input-placeholder {
+				color: white;
+			}
+			.dodo-login-main .layui-form-item input:-moz-placeholder {
+				color: white;
+			}
+			.dodo-login-main .layui-form-item input::-moz-placeholder {
+				color: white;
+			}
+			.dodo-login-main .layui-form-item input:-ms-input-placeholder {
+				color: white;
+			}
+			.dodo-pull-right button:hover {
+				border-color: #009866;
+				color: #009866;
 			}
 		</style>
 	</head>
@@ -28,8 +60,49 @@
 			<div class="content">
 				<div id="large-header" class="large-header">
 					<canvas id="demo-canvas"></canvas>
-					<div class="">
-
+					<div class="dodo-login-box">
+						<header>
+							<h1>Dodo - LOGIN</h1>
+						</header>
+						<div class="dodo-login-main">
+							<form action="/" class="layui-form" method="post">
+								<div class="layui-form-item">
+									<label class="dodo-login-icon">
+										<i class="layui-icon">&#xe612;</i>
+									</label>
+									<input type="text" name="userName" lay-verify="required" autocomplete="off" placeholder="Please input your account." class="layui-input" />
+								</div>
+								<div class="layui-form-item">
+									<label class="dodo-login-icon">
+										<i class="layui-icon">&#xe642;</i>
+									</label>
+									<input type="password" name="password" lay-verify="required" autocomplete="off" placeholder="Please input password." class="layui-input" />
+								</div>
+								<div class="layui-form-item">
+									<label class="dodo-login-icon">
+										<i class="layui-icon">&#xe642;</i>
+									</label>
+									<input type="number" name="validCode" lay-verify="required|number" autocomplete="off" placeholder="Please input cal result." class="layui-input" />
+									<span class="form-code" id="changeCode" style="position:absolute;right: 2px; top: 2px;">
+										<img src="./build/images/GetVerfiyCode.png" id="refImg" style="cursor: pointer;" title="click refresh" />
+									</span>
+								</div>
+								<div class="layui-form-item">
+									<div class="dodo-pull-left dodo-login-remember">
+										<input type="checkbox" name="rememberMe" value="true" lay-skin="primary" checked title="Remember account?" />
+									</div>
+									<div class="dodo-pull-right">
+										<button class="layui-btn layui-btn-primary" lay-submit lay-filter="login">
+											<i class="fa fa-sign-in" aria-hidden="true"></i>登录
+										</button>
+									</div>
+									<div class="dodo-clear"></div>
+								</div>
+							</form>
+						</div>
+						<footer>
+							<p>Dodo © <a href="#" style="color: white;font-size:18px;" target="_blank">www.UberSoldier.com</a></p>
+						</footer>
 					</div>
 				</div>
 			</div>
@@ -40,5 +113,43 @@
 		<script src="./plugins/sideshow/js/TweenLite.min.js"></script>
 		<script src="./plugins/sideshow/js/"></script>
 		<script src="./plugins/sideshow/js/demo-1.js"></script>
+		<script>
+			layui.use(['layer', 'form'], function() {
+				var layer = layui.layer,
+					$ = layui.jquery,
+					form = layui.form;
+				$('#changeCode').on('click', function() {
+					$('#changeCode > img')[0].src = './build/images/GetVerfiyCode.png';
+				});
+
+				var index = layer.load(2, {
+					shade: [0.3, '#333']
+				});
+
+				$(window).on('load', function() {
+					layer.close(index);
+					form.on('submit(login)', function(data) {
+						var loadIndex = layer.load(2, {
+							shade: [0.3, '#333']
+						});
+						location.href = "/";
+						// $.post(data.form.action, data.field, function(res){
+						// 	if (!res.rel) {
+						// 		layer.msg(res.msg, {
+						// 			icon: 2
+						// 		});
+						// 		loadIndex && layer.close(loadIndex);
+						// 		$('#changeCode').click();
+						// 	} else {
+						// 		setTimeout(function() {
+						// 			location.href = '/';
+						// 		}, 1500);
+						// 	}
+						// }, 'json');
+						return false;
+					});
+				}());
+			});
+		</script>
 	</body>
 </html>

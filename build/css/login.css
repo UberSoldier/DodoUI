@@ -1,3 +1,103 @@
 .dodo-login-bg {
     background-color: #393D49;
 }
+
+.dodo-login-box {
+    width: 390px;
+    margin: 10% auto;
+    background-color: #666;
+    background-color: rgba(46, 46, 46, 0.61);
+    border-radius: 10px;
+    color: aliceblue;
+    box-shadow: 0px 0px 20px 0px #009688;
+}
+
+.dodo-login-box header {
+    height: 39px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 150, 136, 0.5);
+}
+
+.dodo-login-box header h1 {
+    text-align: center;
+    font-size: 25px;
+    line-height: 40px;
+}
+
+.dodo-login-box .dodo-login-main {
+    padding: 30px 50px 0;
+}
+
+.dodo-login-box .dodo-login-main .layui-input:focus {
+    border-color: #009688 !important;
+}
+
+.dodo-login-main .layui-form-item {
+    position: relative;
+}
+
+.dodo-login-main .layui-form-item .dodo-login-icon {
+    position: absolute;
+    color: #cccccc;
+    top: 10px;
+    left: 10px;
+}
+
+.dodo-login-main .layui-form-item input {
+    padding-left: 34px;
+}
+
+.dodo-login-box footer {
+    height: 85px;
+}
+
+.dodo-login-box footer p {
+    line-height: 35px;
+    text-align: center;
+}
+
+.dodo-pull-left {
+    float: left !important;
+}
+
+.dodo-pull-right {
+    float: right !important;
+}
+
+.dodo-clear {
+    clear: both;
+}
+
+.dodo-login-remember {
+    line-height: 38px;
+}
+
+.dodo-login-remember .layui-form-checkbox[lay-skin=primary] span {
+    color: white;
+}
+
+.dodo-login-remember .layui-form-checked[lay-skin=primary] i {
+    border-color: #009688;
+    background-color: #009688;
+}
+
+.dodo-login-remember .layui-from-switch {
+    margin-top: 0px;
+}
+
+.dodo-login-code-box {
+    position: relative;
+    width: 10px;
+}
+
+.dodo-login-code-box input {
+    position: absolute;
+    width: 100px;
+}
+
+.dodo-login-code-box img {
+    cursor: pointer;
+    position: absolute;
+    left: 115px;
+    height: 38px;
+}
