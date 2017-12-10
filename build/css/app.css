@@ -1,0 +1,10 @@
+/** 布局样式 */
+.dodo-sided .layui-side-scroll .layui-nav-item a,
+.layui-layout-admin .layui-header .layui-layout-right {
+    padding: 0
+}
+
+
+.dodo-layout-admin .dodo-logo-mobile {
+    display: none;
+}
