@@ -3,18 +3,48 @@
 	<head>
         <meta charset="utf-8">
         <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1">
-        <title>Dodo Admin</title>
+        <title>Dodo ADMIN</title>
         <link rel="stylesheet" type="text/css" href="./plugins/layui/css/layui.css" media="all">
         <link rel="stylesheet" type="text/css" href="./plugins/font-awesome/css/font-awesome.min.css" media="all">
         <link rel="stylesheet" type="text/css" href="./build/css/app.css" media="all">
-        <link rel="stylesheet" type="text/css" href="./build/css/themes/default.css" media="all">
+        <link rel="stylesheet" type="text/css" href="./build/css/themes/default.css" media="all" id="skin" kit-skin >
 	</head>
 	<body class="dodo-theme">
 		<div class="layui-layout layui-layout-admin dodo-layout-admin">
             <div class="layui-header">
-                <div class="layui-logo">Dodo Admin</div>
-                <div class="layui-logo dodo-logo-mobile">K</div>
+                <div class="layui-logo">Dodo ADMIN</div>
+                <div class="layui-logo dodo-logo-mobile">D</div>
+                <ul class="layui-nav layui-layout-left dodo-nav">
+                    <li class="layui-nav-item"><a href="javascript:void(0);">控制台</a></li>
+                    <li class="layui-nav-item"><a href="javascript:void(0);">图书管理</a></li>
+                    <li class="layui-nav-item"><a href="javascript:void(0);"><i class="fa fa-gratipay"></i>收藏管理</a></li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">其他系统</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:void(0);">考试管理</a></dd>
+                            <dd><a href="javascript:void(0);">成绩查询</a></dd>
+                            <dd><a href="javascript:void(0);">学生管理</a></dd>
+                        </dl>
+                    </li>
+                </ul>
             </div>
         </div>
 	</body>
+    <script src="./plugins/layui/layui.js"></script>
+    <script>
+        var message;
+        layui.config({
+            base: 'build/js/',
+            version: '1.0.1'
+        }).use(['app', 'message'], function() {
+            var app = layui.app,
+                $ = layui.jquery,
+                layui = layui.layer,
+                message = layui.message;
+            app.set({
+                type: 'iframe'
+            }).init();
+
+        });
+    </script>
 </html>

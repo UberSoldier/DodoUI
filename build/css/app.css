@@ -4,7 +4,375 @@
     padding: 0
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px
+}
+
+::-webkit-scrollbar-button:vertical {
+    display: none
+}
+
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-track {
+    background-color: #e2e2e2
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.3)
+}
+
+::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: rgba(0, 0, 0, 0.35)
+}
+
+::-webkit-scrollbar-thumb:vertical:active {
+    background-color: rgba(0, 0, 0, 0.38)
+}
+
+a, button {
+    position: relative;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    overflow: hidden;
+    user-select: none
+}
+
+.ripple {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 100%;
+    transform: scale(0);
+    pointer-events: none
+}
+
+.dodo-table,
+.dodo-table .dodo-table-header {
+    position: relative;
+    box-shadow: 0 1px 7px 0#ccc
+}
 
 .dodo-layout-admin .dodo-logo-mobile {
     display: none;
+}
+
+.dodo-nav .layui-this,
+.layui-layout-left .layui-nav-item:hover {
+    background-color: #393D49 !important
+}
+
+.ripple.show {
+    animation: ripple .75s ease-out;
+}
+
+@keyframe ripple {
+    to {
+        transform: scale(2);
+        opacity: 0
+    }
+}
+
+.dodo-nav .layui-nav-item {
+    line-height: 50px
+}
+
+.dodo-nav .layui-nav-item .layui-nav-more {
+    top：22px
+}
+
+.dodo-nav .layui-nav-item .layui-nav-mored {
+    top: 16px
+}
+
+.dodo-nav .layui-nav-item .layui-nav-child {
+    top: 55px
+}
+
+.dodo-nav * {
+    font-size: 13px
+}
+
+.dodo-nav .layui-nav-bar {
+    height: 0
+}
+
+.dodo-nav .layui-this:after {
+    content: none
+}
+
+.dodo-layout-admin .layui-footer {
+    height: 35px;
+    line-height: 35px
+}
+
+.dodo-layout-admin .layui-body {
+    bottom: 35px;
+    top: 50px
+}
+
+.dodo-layout-admin .layui-header {
+    height: 50px
+}
+
+.dodo-layout-admin .layui-logo {
+    line-height: 50px
+}
+
+.dodo-layout-admin .dodo-side {
+    top: 50px
+}
+
+.dodo-layout-admin .dodo-sided {
+    width: 50px
+}
+
+.dodo-side .layui-side-scroll,
+.dodo-side .layui-side-scroll .layui-nav-tree {
+    width: auto
+}
+
+.dodo-side .layui-side-scroll .dodo-side-fold {
+    height: 35px;
+    background-color: #4A5064;
+    color: #aeb9c2;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer
+}
+
+.dodo-sided .layui-side-scroll .layui-nav-item {
+    text-align: center
+}
+
+.dodo-side .layui-nav-tree .layui-nav-child a {
+    padding-left: 30px
+}
+
+.dodo-sided .layui-nav-tree .layui-nav-child a {
+    padding-left: 0
+}
+
+.dodo-sided .layui-side-scroll a span {
+    display: none
+}
+
+.dodo-layout-admin .dodo-body-folded,
+.dodo-layout-admin .dodo-footer-folded {
+    left: 50px
+}
+
+dodo-table .dodo-table-header {
+    height: 50px
+}
+
+.dodo-table .dodo-table-header .dodo-search-btns {
+    padding: 10px;
+    position: absolute
+}
+
+.dodo-table .dodo-table-header .dodo-search-inputs {
+    position: absolute;
+    right: 70px;
+    top: 0;
+    padding: 10px 25px 10px 10px
+}
+
+.dodo-table .dodo-table-header .dodo-search-inputs .dodo-search-keyword {
+    margin-right: 10px;
+    position: relative
+}
+
+.dodo-table .dodo-table-header .dodo-search-inputs .dodo-search-more {
+    cursor: pointer;
+    color: #009688;
+    position: absolute;
+    top: 15px;
+    right: -50px
+}
+
+.dodo-table .dodo-table-header .dodo-search-keyword input {
+    height: 30px;
+    line-height: 30px;
+    width: 200px;
+    padding-right: 32px
+}
+
+.dodo-table .dodo-table-header .dodo-search-inputs .dodo-search-keyword button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    cursor: pointer;
+    background-color: #009688;
+    color: #fff
+}
+
+.dodo-table .dodo-table-header .dodo-search-btns .layui-btn {
+    padding: 0 15px
+}
+
+.dodo-table .dodo-search-mored {
+    height: auto;
+    top: 51px;
+    background-color: #fff;
+    z-index: 5;
+    box-shadow: -4px 4px 7px -3px #ccc;
+    position: absolute;
+    margin-bottom: 10px;
+    display: none;
+    right: 0;
+    width: 50%
+}
+
+.dodo-table .dodo-search-mored .dodo-search-body {
+    padding: 10px 10px 45px
+}
+
+.dodo-table .dodo-search-mored .dodo-search-footer {
+    height: 50px;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    border-top: 1px solid #e2e2e2;
+    text-align: right
+}
+
+.dodo-tab,
+.dodo-table .dodo-table-body {
+    position: relative
+}
+
+.dodo-table .dodo-search-mored .dodo-search-footer .dodo-btn {
+    margin: 10px 5px;
+    padding: 0 15px;
+}
+
+.dodo-table .dodo-search-mored .dodo-search-footer .dodo-btn:last-child {
+    margin-right: 15px
+}
+
+.dodo-tab,
+.dodo-table .dodo-table-body .layui-table-view {
+    margin: 0
+}
+
+.dodo-tab {
+    border-bottom: 0;
+    box-shadow: none
+}
+
+.dodo-tab .dodo-tab-tool,
+.dodo-tab .dodo-tab-tool-body .dodo-line {
+    border-bottom: 1px solid #e2e2e2
+}
+
+.dodo-tab .dodo-tab-tool {
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    top: 0;
+    right: 10px;
+    border-left: 1px solid #e2e2e2;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    border-right: 1px solid #e2e2e2
+}
+
+.dodo-tab .dodo-tab-tool:hover{
+    background-color: #f3f3f3
+}
+
+.dodo-tab .dodo-tab-body {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    width: 150px;
+    border: 1px solid #e2e2e2;
+    display: none;
+    background-color: #fff;
+    z-index: 999
+}
+
+.dodo-tab .dodo-tab-tool-body ul {
+    text-align: center;
+    padding: 8px 0;
+}
+
+.dodo-tab .dodo-tab-tool-body ul li.dodo-item {
+    line-height: 35px;
+    cursor: pointer;
+    color: #393D49
+}
+
+.dodo-tab .dodo-tab-tool-body ul li.dodo-item:hover {
+    background-color: #f3f3f3
+}
+
+.dodo-tab .layui-tab-title {
+    width: calc(100% - 71px);
+    padding-right: 0;
+    position: absolute;
+    z-index: 2
+}
+
+.dodo-tab .layui-tab-content {
+    padding: 0;
+    position: relative;
+    top: 41px;
+    overflow-y: auto
+}
+
+.dodo-tab layui-tab-content iframe {
+    width: 100%;
+    border: 0
+}
+
+@media (max-width: 992px;) {
+    .dodo-layout-admin .layui-body,
+    .dodo-layout-admin .layui-footer,
+    .dodo-layout-admin .layui-layout-left {
+        left: 50px
+    }
+
+    .dodo-layout-admin .dodo-side {
+        width: 50px
+    }
+
+    .dodo-layout-admin .dodo-side .layui-side-scroll .layui-nav li.layui-nav-item,
+    .dodo-layout-admin .dodo-side .layui-side-scroll .layui-nav li.layui-nav-item dl dd {
+        text-align: center
+    }
+
+    .dodo-layout-admin .dodo-side .layui-side-scroll .layui-nav li.layui-nav-item a,
+    .dodo-layout-admin .dodo-side .layui-side-scroll .layui-nav li.layui-nav-item dl dd a {
+        padding: 0
+    }
+
+    .dodo-layout-admin .dodo-side .layui-side-scroll .layui-nav li.layui-nav-item a span,
+    .dodo-layout-admin .dodo-side .layui-side-scroll .layui-nav li.layui-nav-item dl dd a span,
+    .dodo-layout-admin .layui-logo,
+    .dodo-side .layui-side-scroll .dodo-side-fold {
+        display: none
+    }
+
+    .dodo-layout-admin .dodo-logo-mobile {
+        display: block;
+        width: 50px
+    }
+
+    .dodo-table .dodo-search-mored {
+        width: 100%;
+        box-shadow: 0 4px 7px -3px #ccc
+    }
+
+    .dodo-side .layui-nav-tree .layui-nav-child a,
+    .dodo-sided .layui-nav-tree .layui-nav-child a {
+        padding-left: 0
+    }
 }
