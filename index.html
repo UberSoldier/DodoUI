@@ -27,6 +27,102 @@
                         </dl>
                     </li>
                 </ul>
+                <ul class="layui-nav layui-layout-right dodo-nav">
+                    <li class="layui-nav-item">
+                        <a href="javascript:void();"><i class="layui-icon">&#xe63f;</i></a>
+                        <dl class="layui-nav-child skin">
+                            <dd><a href="javascript:void(0);" data-skin="default" style="..."><i class="layui-icon">&#xe658;</i>默认</a></dd>
+                            <dd><a href="javascript:void(0);" data-skin="orange" style="..."><i class="layui-icon">&#xe658;</i>橘子橙</a></dd>
+                            <dd><a href="javascript:void(0);" data-skin="green" style="..."><i class="layui-icon">&#xe658;</i>原凉绿</a></dd>
+                            <dd><a href="javascript:void(0);" data-skin="pink" style="..."><i class="layui-icon">&#xe658;</i>少女粉</a></dd>
+                            <dd><a href="javascript:void(0);" data-skin="blue.1" style="..."><i class="layui-icon">&#xe658;</i>天空蓝</a></dd>
+                            <dd><a href="javascript:void(0);" data-skin="red" style="..."><i class="layui-icon">&#xe658;</i>枫叶红</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:void(0);">
+                            <img src="build/images/0.jpg" alt="" class="layui-nav-img"> XC
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:void(0);" dodo-target data-option="{url:'basic.html', icon:'&#xe658;', title:'基本资料', id:'966'}">
+                                    <span>基本资料</span>
+                                </a>
+                            </dd>
+                            <dd><a href="javascript:void(0);">安全设置</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i>注销</a></li>
+                </ul>
+            </div>
+
+            <div class="layui-side layui-bg-black dodo-side">
+                <div class="layui-side-scroll">
+                    <div class="dodo-side-fold">
+                        <i class="fa fa-navicon" aria-hidden="true"></i>
+                    </div>
+                    <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                    <ul class="layui-nav layui-nav-tree" lay-filter="dodo-Navbar" dodo-navbar>
+                        <li class="layui-nav-item layui-nav-itemed">
+                            <a href="javascript:void(0);"><i class="fa fa-plug" aria-hidden="true"></i><span> 基本元素</span></a>
+                            <dl class="layui-nav-child">
+                                <dd>
+                                    <a href="javascript:void(0);" dodo-target data-option="{url:'test.html', icon:'&#xe6c6;', title:'表格', id:'1'}">
+                                        <i class="layui-icon">&#xe6c6;</i><span> 表格</span>
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="javascript:void(0);" data-url="form.html" data-icon="fa-user" data-title="表单" dodo-target data-id="2">
+                                        <i class="fa fa-user" aria-hidden="true"></i><span> 表单</span>
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="javascript:void(0);" data-url="nav.html" data-icon="&#xe628;" data-title="导航栏" dodo-target data-id="3">
+                                        <i class="layui-icon">&#xe628;</i><span> 导航栏</span>
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="javascript:void(0);" data-url="list4.html" data-icon="&#xe614;" data-title="列表4" dodo-target data-id="4">
+                                        <i class="layui-icon">&#xe614;</i><span> 列表四</span>
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="javascript:void(0);" data-option="{url:'https://www.baidu.com', icon:'&#xe658;', title:'百度一下', id='5'}">
+                                        <i class="layui-icon">&#xe658;</i><span> 百度一下</span>
+                                    </a>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li class="layui-nav-item layui-nav-itemed">
+                            <a href="javascript:void(0);"><i class="fa fa-plug" aria-hidden="true"></i><span> 组件</span></a>
+                            <dl class="layui-nav-child">
+                                <dd>
+                                    <a href="javascript:void(0);" dodo-target data-option="{url:'navbar.html', icon:'&#xe658;', title:'Navbar', id='6'}">
+                                        <i class="layui-icon">&#xe658;</i><span> Navbar</span>
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="javascript:void(0);" dodo-target data-option="{url:'tab.html', icon:'&#xe658;', title:'TAB'}, id='7'">
+                                        <i class="layui-icon">&#xe658;</i><span> TAB</span>
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="javascript:void(0);" dodo-target data-option="{url:'onelevel.html', icon:'&#xe658;', title:'OneLevel', id='50'}">
+                                        <i class="layui-icon">&#xe658;</i><span> OneLevel</span>
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="javascript:void(0);" dodo-target data-option="{url:'app.html', icon:'&#xe658;', title:'App', id='8'}">
+                                        <i class="layui-icon">&#xe658;</i><span> App</span>
+                                    </a>
+                                </dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layui-body" id="container">
+                <!--  -->
             </div>
         </div>
 	</body>
