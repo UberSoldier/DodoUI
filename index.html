@@ -122,25 +122,69 @@
                 </div>
             </div>
             <div class="layui-body" id="container">
-                <!--  -->
+                <!-- 内容主体区域 -->
+                <div style="padding: 15px;">
+                    <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop">&#xe63e;</i> 请稍等...
+                </div>
+            </div>
+            <div class="layui-footer">
+                <!-- 底部固定区域 -->
+                2017 &copy;
+                <a href="https://github.com/UberSoldier/DodoUI">https://github.com/UberSoldier/DodoUI</a>  Dodo license
             </div>
         </div>
-	</body>
-    <script src="./plugins/layui/layui.js"></script>
-    <script>
-        var message;
-        layui.config({
-            base: 'build/js/',
-            version: '1.0.1'
-        }).use(['app', 'message'], function() {
-            var app = layui.app,
-                $ = layui.jquery,
-                layui = layui.layer,
+        <script type="test/javascript">
+            var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+            document.write(unescape("%3Cspan id='cnzz_stat_icon_1264021086'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1264021086%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script src="./plugins/layui/layui.js"></script>
+        <script>
+            var message;
+            layui.config({
+                base: 'build/js/',
+                version: '1.0.1'
+            }).use(['app', 'message'], function() {
+                var app = layui.app,
+                    $ = layui.jquery,
+                    layui = layui.layer,
                 message = layui.message;
-            app.set({
-                type: 'iframe'
-            }).init();
-
-        });
-    </script>
+                // 主入口
+                app.set({
+                    type: 'iframe'
+                }).init();
+                $('#pay').on('click', function() {
+                    layer.open({
+                        title: false,
+                        type: 1,
+                        content: '<img src="/src/images/pay.png">',
+                        area: ['500px', '250px'],
+                        shadeClose: true
+                    });
+                });
+                $('dl.skin > dd').on('click', function() {
+                    var $that = $(this);
+                    var skin = $that.children('a').data('skin');
+                    switchSkin(skin);
+                });
+                var setSkin = function(value) {
+                    layui.data('dodo_skin', {
+                        key: 'skin',
+                        value: value
+                    });
+                },
+                getSkinName = function() {
+                    return layui.data('dodo_skin').skin;
+                },
+                switchSkin = function(value) {
+                    var _target = $('link[dodo-skin]')[0];
+                    _target.href = _target.href.substring(0, _target.href.lastIndexOf('/') + 1) + value + _target.href.substring(_target.href.lastIndexOf('.'));
+                    setSkin(value);
+                },
+                initSkin = function() {
+                    var skin = getSkinName();
+                    switchSkin(skin == undefined ? 'default' : skin);
+                }();
+            });
+        </script>
+	</body>
 </html>
