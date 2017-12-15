@@ -1,7 +1,7 @@
 /** app.js */
 'use strict';
 var tab;
-layui.define(['element', 'form', 'table', 'navbar', 'laytpl', 'spa'], function(exports) {
+layui.define(['element', 'form', 'table', 'navbar', 'onelevel', 'laytpl', 'spa'], function(exports) {
     var $ = layui.jquery,
         element = layui.element,
         layer = layui.layer,
