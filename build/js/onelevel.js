@@ -6,7 +6,7 @@ layui.define(['jquery', 'laytpl', 'element'], function(exports) {
         _doc = $(document),
         laytpl = layui.laytpl;
 
-    var oneLevel = {
+    var onelevel = {
         v: '1.0.1',
         config: {
             elem: undefined,
@@ -93,12 +93,22 @@ layui.define(['jquery', 'laytpl', 'element'], function(exports) {
                 if (_data.length > 0) {
                     clearInterval(tIndex);
                 }
+                // 渲染模板
                 laytpl(_tpl.join('')).render(_data, function(html) {
                     _elem.html(html);
                     layui.element.init();
-                    typeof _config.onClicked === 'function' && _elem.children('li.layui-nav-item').off('click').on('click');
-                })
-            })
+                    typeof _config.onClicked === 'function' && _elem.children('li.layui-nav-item').off('click').on('click', function() {
+                        var _a = $(this).children('a');
+                            id = _a.data('id');
+                            _config.onClicked(id);
+                    });
+                    // 关闭等待层
+                    navbarLoadIndex && layer.close(navbarLoadIndex);
+                    typeof _config.renderAfter === 'function' && _config.renderAfter(_elem);
+                });
+            }, 50);
+            return that;
         }
-    }
+    };
+    exports('onelevel', onelevel);
 });

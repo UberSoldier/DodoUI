@@ -15,7 +15,7 @@ layui.define(['layer'], function(exports) {
                 return result[1];
             }
             return content;
-        }
+        },
         /**
          * 读取html字符串
          */
@@ -47,7 +47,7 @@ layui.define(['layer'], function(exports) {
                 }
             });
             return result;
-        }
+        },
         /**
          * 加载等待层
          */
