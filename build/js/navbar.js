@@ -109,7 +109,7 @@ layui.define(['layer', 'laytpl', 'element'], function(exports) {
             var that = this,
                 _config = that.config, // 配置
                 _remote = _config.remote, // 远程参数配置
-                -tpl = [
+                _tpl = [
                     '{{# layui.each(d, function(index, item){ }}',
                     '{{# if(item.spread){ }}',
                     '<li class="layui-nav-item layui-nav-itemed">',
@@ -195,7 +195,7 @@ layui.define(['layer', 'laytpl', 'element'], function(exports) {
                         element.init();
                         // 绑定a标签的点击事件
                         that.bind(function(data) {
-                            typeof callback ==== 'function' && callback(data);
+                            typeof callback === 'function' && callback(data);
                         });
                         // 关闭等待层
                         navbarLoadIndex && layer.close(navbarLoadIndex);

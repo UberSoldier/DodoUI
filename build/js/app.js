@@ -1,5 +1,5 @@
 /** app.js */
-;'use strict';
+
 var tab;
 layui.define(['element', 'nprogress', 'form', 'table', 'loader', 'tab', 'navbar', 'onelevel', 'laytpl', 'spa'], function(exports) {
     var $ = layui.jquery,

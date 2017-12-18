@@ -10,7 +10,7 @@ layui.define(['jquery', 'element', 'nprogress', 'utils'], function(exports) {
             page: 'page',
             iframe: 'iframe'
         };
-    var tab = function() {
+    var Tab = function() {
         this.config = {
             elem: undefined,
             mainUrl: 'main.html',

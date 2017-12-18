@@ -28,18 +28,18 @@ layui.define(['jquery', 'laytpl', 'element'], function(exports) {
         hasElem: function() {
             var that = this,
                 _config = that.config;
-            if (_config.elem === undefined && _doc.find('ul[dodo-one-level]').length === 0 && $(_config.elem) {
+            if (_config.elem === undefined && _doc.find('ul[dodo-one-level]').length === 0 && $(_config.elem)) {
                 return false;
             }
             return true;
-        }
+        },
         /**
          * 获取容器的jq对象
          */
         getElem: function() {
             var _config = this.config;
             return (_config.elem !== undefined && $(_config.elem).length > 0) ? $(_config.elem) : _doc.find('ul[dodo-one-level]');
-        }
+        },
         render: function() {
             var that = this,
                 _config = that.config,
