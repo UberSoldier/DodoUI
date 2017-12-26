@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="./plugins/layui/css/layui.css" media="all">
         <link rel="stylesheet" type="text/css" href="./plugins/font-awesome/css/font-awesome.min.css" media="all">
         <link rel="stylesheet" type="text/css" href="./build/css/app.css" media="all">
-        <link rel="stylesheet" type="text/css" href="./build/css/themes/default.css" media="all" id="skin" kit-skin >
+        <link rel="stylesheet" type="text/css" href="./build/css/themes/default.css" media="all" id="skin" dodo-skin >
 	</head>
 	<body class="dodo-theme">
 		<div class="layui-layout layui-layout-admin dodo-layout-admin">
@@ -143,7 +143,7 @@
             }).use(['app', 'message'], function() {
                 var app = layui.app,
                     $ = layui.jquery,
-                    layui = layui.layer,
+                    layer = layui.layer,
                 message = layui.message;
                 // 主入口
                 app.set({

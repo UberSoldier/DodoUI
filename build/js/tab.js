@@ -73,7 +73,7 @@ layui.define(['jquery', 'element', 'nprogress', 'utils'], function(exports) {
          */
         createTabDom: function() {
             var that = this,
-                _config = that.config;
+                _config = that._config;
             this._parentElem = _config.elem;
             if (that.tabDomExists()) {
                 return;
@@ -184,7 +184,7 @@ layui.define(['jquery', 'element', 'nprogress', 'utils'], function(exports) {
          */
         winResize: function() {
             var that = this,
-                _config = that.config;
+                _config = that._config;
             _win.on('resize', function() {
                 var currBoxHeight = $(that._parentElem).height(); // 获取当前容器的高度
                 switch (_config.renderType) {
