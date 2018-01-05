@@ -1,4 +1,4 @@
-'use strict';
+;
 layui.define(['jquery', 'element', 'nprogress', 'utils'], function(exports) {
     var $ = layui.jquery,
         _modName = 'tab',
