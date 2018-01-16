@@ -51,6 +51,9 @@ layui.define(['jquery', 'element', 'nprogress', 'utils'], function(exports) {
      Tab.fn.close = function(layId) {
         _tab.tabDelete(layId);
      };
+     Tab.fn.getId = function() {
+        return _tab.getCurrLayId();
+     };
      //私用对象
      var _tab = {
         _config: {},
@@ -74,7 +77,7 @@ layui.define(['jquery', 'element', 'nprogress', 'utils'], function(exports) {
         createTabDom: function() {
             var that = this,
                 _config = that._config;
-            this._parentElem = _config.elem;
+            that._parentElem = _config.elem;
             if (that.tabDomExists()) {
                 return;
             }
@@ -112,9 +115,9 @@ layui.define(['jquery', 'element', 'nprogress', 'utils'], function(exports) {
             //渲染
             $(_config.elem).html(_htm);
             that._title = $('.dodo-tab ul.layui-tab-title');
-            that._config = $('.dodo-tab div.layui-tab-content');
+            that._content = $('.dodo-tab div.layui-tab-content');
             var _tool = $('.dodo-tab-tool'),
-                _toolBody = $('dodo-tab-tool-body');
+                _toolBody = $('.dodo-tab-tool-body');
             //监听操作点击事件
             _tool.on('click', function() {
                 _toolBody.toggle();
@@ -130,7 +133,7 @@ layui.define(['jquery', 'element', 'nprogress', 'utils'], function(exports) {
                             switch (_config.renderType) {
                                 case renderType.page:
                                     var loadIndex = that.load();
-                                    var url = that._title.children('li[class=layui-this]').attr('lay-id');
+                                    var url = that._title.children('li[lay-id=' + layId + ']').data('url');
                                     that._content.children('div[lay-item-id='+ layId +']').html(that.getBodyContent(url + '?v=' + new Date().getTime(), function() {
                                         that.closeLoad(loadIndex);
                                     }));
@@ -142,7 +145,8 @@ layui.define(['jquery', 'element', 'nprogress', 'utils'], function(exports) {
                             }
                             break;
                         case 'closeCurrent': //关闭当前
-                            if (layId != -1) that.tabDelete(layId);
+                            if (layId != -1)
+                                that.tabDelete(layId);
                             break;
                         case 'closeOther': //关闭其他
                             that._title.children('li[lay-id]').each(function() {
@@ -171,7 +175,7 @@ layui.define(['jquery', 'element', 'nprogress', 'utils'], function(exports) {
         load: function() {
             return layer.load(0, {shade: [0.3, '#333']});
         },
-        closeLoad: function() {
+        closeLoad: function(index) {
             setTimeout(function() {
                 index && layer.close(index);
             }, 500);
@@ -227,8 +231,8 @@ layui.define(['jquery', 'element', 'nprogress', 'utils'], function(exports) {
          */
         tabAdd: function(options) {
             var that = this,
-                _config = that.config,
-                loadIndex = that.undefined;
+                _config = that._config,
+                loadIndex = undefined;
             options = options || {
                 id: new Date().getTime(),
                 title: '新标签页',
@@ -244,11 +248,12 @@ layui.define(['jquery', 'element', 'nprogress', 'utils'], function(exports) {
                 return;
             }
             NProgress.start();
-            if (_config.openWait) loadIndex = that.load();
+            if (_config.openWait)
+                loadIndex = that.load();
             var titleHtm = ['<li class="layui-this" lay-id="' + id + '" data-url="' + url + '">'];
             if (icon) {
                 if (icon.indexOf('fa-') !== -1) {
-                    titleHtm.push('<i class="fa ' + icon + ' aria-hidden="true"></i>');
+                    titleHtm.push('<i class="fa ' + icon + '" aria-hidden="true"></i>');
                 } else {
                     titleHtm.push('<i class="layui-icon">' + icon + '</i>');
                 }
@@ -261,7 +266,7 @@ layui.define(['jquery', 'element', 'nprogress', 'utils'], function(exports) {
                 case renderType.page:
                     contentHtm = contentHtm.replace('{{content}}', that.getBodyContent(url + '?v=' + new Date().getTime(), function() {
                         setTimeout(function() {
-                            NPropress.done();
+                            NProgress.done();
                             _config.openWait && loadIndex && that.closeLoad(loadIndex);
                         }, 500);
                     }));
@@ -272,10 +277,10 @@ layui.define(['jquery', 'element', 'nprogress', 'utils'], function(exports) {
             }
             //追加htm
             that._title.append(titleHtm.join(''));
-            that._config.append(contentHtm);
-            if (_config.renderType.page === renderType.iframe) {
+            that._content.append(contentHtm);
+            if (_config.renderType === renderType.iframe) {
                 that._content.find('div[lay-item-id=' + id + ']').find('iframe').on('load', function() {
-                    NPropress.done();
+                    NProgress.done();
                     _config.openWait && loadIndex && that.closeLoad(loadIndex);
                 });
             }

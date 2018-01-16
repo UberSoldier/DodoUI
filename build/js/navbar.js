@@ -61,7 +61,7 @@ layui.define(['layer', 'laytpl', 'element'], function(exports) {
                 var _that = $(this), tipsId = undefined;
                 if (defaults.showTips) {
                     _that.hover(function() {
-                        tipsId = layer.tips($(this).children('span').text, this);
+                        tipsId = layer.tips($(this).children('span').text(), this);
                     }, function() {
                         if (tipsId) {
                             layer.close(tipsId);
@@ -73,9 +73,9 @@ layui.define(['layer', 'laytpl', 'element'], function(exports) {
                     var data;
                     if (options !== undefined) {
                         try {
-                            data = new Function('return' + options)();
+                            data = new Function('return ' + options)();
                         } catch (e) {
-                            layui.hint().error('Navbar 组件 a[data-option]配置预存在语法错误：' + options);
+                            layui.hint().error('Navbar 组件 a[data-options]配置预存在语法错误：' + options);
                         }
                     } else {
                         data = {
@@ -95,7 +95,7 @@ layui.define(['layer', 'laytpl', 'element'], function(exports) {
                     _doc.find('div.layui-body').removeClass('dodo-body-folded');
                     _doc.find('div.layui-footer').removeClass('dodo-footer-folded');
                 } else {
-                    _side.addClass('dodo-sided;');
+                    _side.addClass('dodo-sided');
                     _doc.find('div.layui-body').addClass('dodo-body-folded');
                     _doc.find('div.layui-footer').addClass('dodo-footer-folded');
                 }
@@ -128,9 +128,9 @@ layui.define(['layer', 'laytpl', 'element'], function(exports) {
                     '</a>',
                     '{{# var children = item.children; }}',
                     '<dl class="layui-nav-child">',
-                    '{{# layui.each(children, function(childrenIndex, child){ }}',
+                    '{{# layui.each(children, function(childIndex, child){ }}',
                     '<dd>',
-                    '<a href="javascript:void(0);" dodo-target data-option="{url:\'{{child.url }}\',icon:\'{{child.icon }}\',title:\'{{child.title }}\',id:\'{{child.id }}\'}">',
+                    '<a href="javascript:void(0);" dodo-target data-options="{url:\'{{child.url }}\',icon:\'{{child.icon }}\',title:\'{{child.title }}\',id:\'{{child.id }}\'}">',
                     '{{# if (child.icon.indexOf("fa-") !== -1) { }}',
                     '<i class="fa {{child.icon }}" aria-hidden="true"></i>',
                     '{{# }else{ }}',
@@ -142,9 +142,9 @@ layui.define(['layer', 'laytpl', 'element'], function(exports) {
                     '{{# }); }}',
                     '</dl>',
                     '{{# }else{ }}',
-                    '<a href="javascript:void(0); dodo-target data-option="{url:\'{{item.url }}\',icon:\'{{item.icon }}\',title:\'{{item.title }}\',id:\'{{item.id}}\'">',
+                    '<a href="javascript:void(0); dodo-target data-options="{url:\'{{item.url }}\',icon:\'{{item.icon }}\',title:\'{{item.title }}\',id:\'{{item.id}}\'">',
                     '{{# if (item.icon.indexOf("fa-") !== -1) { }}',
-                    '<i class="fa {{item.icon }} aria-hidden="true"></i>',
+                    '<i class="fa {{item.icon }}" aria-hidden="true"></i>',
                     '{{# }else{ }}',
                     '<i class="layui-icon">{{item.icon }}</i>',
                     '{{# } }}',
@@ -161,7 +161,7 @@ layui.define(['layer', 'laytpl', 'element'], function(exports) {
             }
             var _elem = that.getElem();
             // 本地数据优先
-            if (_config.data !== undefinded && _config.data.length > 0) {
+            if (_config.data !== undefined && _config.data.length > 0) {
                 _data = _config.data;
             } else {
                 var dataType = _remote.jsonp ? 'jsonp' : 'json';
@@ -188,7 +188,7 @@ layui.define(['layer', 'laytpl', 'element'], function(exports) {
             }
             var tIndex = setInterval(function() {
                 if (_data.length > 0) {
-                    clearInterval(tIndex );
+                    clearInterval(tIndex);
                     // 渲染模板
                     laytpl(_tpl.join('')).render(_data, function(html) {
                         _elem.html(html);
