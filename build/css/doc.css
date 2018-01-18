@@ -1,0 +1,36 @@
+/*
+* @Author: Marte
+* @Date:   2018-01-18 15:37:45
+* @Last Modified by:   Marte
+* @Last Modified time: 2018-01-18 16:14:07
+*/
+
+.dodo-doc {
+    padding: 20px;
+}
+
+.dodo-doc a {
+    color: #009688;
+}
+
+.dodo-doc-title {
+    margin: 30px 0 20px;
+}
+
+.dodo-doc-title fieldset {
+    border: none;
+    padding: 0;
+    border-top: 1px solid #eee;
+}
+
+.dodo-doc-title fieldset legend {
+    margin-left: 20px;
+    padding: 0 10px;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.dodo-doc-title fieldset legend a {
+    color: #333;
+    text-decoration: none;
+}

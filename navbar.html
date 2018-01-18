@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="id=edge">
+    <title>Navbar组件</title>
+    <link rel="stylesheet" type="text/css" href="./plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./build/css/doc.css">
+</head>
+<body>
+    <div class="dodo-doc">
+        <blockquote class="layui-elem-quote">
+            Navbar组件是基于<a href="http://www.layui.com/doc/element/nav.html" target="_blank">layui导航菜单</a> 封装的组件，
+            配合<a href="tab.html">tab组件</a> 能够完成多开页面的操作
+        </blockquote>
+        <div class="dodo-doc-title">
+            <fieldset>
+                <legend><a name="blockquote">设置绑定方式</a></legend>
+            </fieldset>
+        </div>
+        <p>提供两种设置方式(设置data属性 和 dodo-target 属性)，以下两种方式都能正确解析[详细请参考index.html]</p>
+        <table class="layui-table">
+            <colgroup>
+                <col width="100">
+                <col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td>方式一</td>
+                    <td>
+                        <pre class="layui-code">
+//data-url //跳转地址
+//data-icon //图标，支持layui图片和fa图标
+//data-title //标题
+//data-id //唯一id
+Example:
+<pre class="layui-code">
+data-url="form.html" data-icon="fa-user" data-title="表单" kit-target data-id='2' kit-target</pre></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>方式二</td>
+                    <td>
+<pre class="layui-code">
+kit-target data-options="{url:'test.html',icon:'fa-user',title:'表格',id:'1'}"
+</pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="dodo-doc-title">
+            <fieldset>
+                <legend><a name="blockquote">渲染方式</a></legend>
+            </fieldset>
+        </div>
+        <p> 该组件提供了三种渲染方式 </p>
+        <table class="layui-table">
+            <colgroup>
+                <col width="180">
+                <col width="230">
+                <col width="100">
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>渲染方式</th>
+                    <th>方法</th>
+                    <th>备注</th>
+                    <th>详细说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>服务端渲染后绑定</td>
+                    <td>调用navbar.bind()方法</td>
+                    <td>已实现</td>
+                    <td>此方法需在dom元素渲染完成后执行
+                        <p>Example：</p>
+                        <pre class="layui-code">
+//注：需在容器内添加属性 kit-navbar或指定容器,example:navbar.set({elem:'#container'});
+navbar.bind(function(data) {
+    t.tabAdd(data);//这个方法为tab组件提供的方法
+});
+data的数据结构:
+data.icon;//图标，支持layui图标和fontawesome图标
+data.id;//id,唯一标识
+data.title;//标题
+data.url;//跳转地址</pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
